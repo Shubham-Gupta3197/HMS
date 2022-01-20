@@ -82,13 +82,16 @@ public class CustomerInfo extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try{
                                     conn c  = new conn();
+				String displayCustomersql = "select * from Customer";
+				ResultSet rs = c.s.executeQuery(displayCustomersql);
+				table.setModel(DbUtils.resultSetToTableMode(rs));
+				}	
 				catch(Exception e)
 				{
 					e.printStackTrace();
 				}
 			}
 				
-			
 		});
 		btnLoadData.setBounds(300, 510, 120, 30);
                 btnLoadData.setBackground(Color.BLACK);
